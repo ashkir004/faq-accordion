@@ -15,10 +15,6 @@
 
     --surface-1: var(--clr-purple-100);
     --surface-2: var(--clr-white);
-    --primary-container: var(--clr-violet-600);
-    --onprimary-container: var(--clr-white);
-    --secondary-container: var(--clr-black);
-    --onsecondary-container: var(--clr-white);
     --title: var(--clr-purple-950);
     --body-text: var(--clr-purple-600);
 
@@ -77,6 +73,7 @@ main::before {
     flex-direction: column;
     gap: var(--spacing-300);
     border-radius: var(--size-8);
+    box-shadow: 0 15px 20px -5px gainsboro;
 } 
 
 .title-wrapper {
@@ -110,7 +107,20 @@ details {
     color: var(--body-text);
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-300);
+    border-bottom: .15rem solid var(--clr-purple-100);
+}
+
+details p {
+    padding-bottom: var(--spacing-300);
+}
+
+details:nth-last-child(1) {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+details:nth-last-child(1) p {
+    padding-bottom: 0;
 }
 
 summary {
@@ -120,6 +130,8 @@ summary {
     gap: var(--spacing-300); 
     justify-content: space-between;
     align-items: center;
+    cursor: pointer;
+    margin-block-end: var(--spacing-300);
 }
 
 summary h2 {
@@ -128,6 +140,16 @@ summary h2 {
     font-size: calc(18 / 16 * 1rem);
     line-height: calc(21 / 16 * 1rem);
     color: var(--title);
+}
+
+summary:focus {
+    outline-color: var(--clr-violet-600);
+    outline: none;
+}
+
+summary:focus h2,
+summary h2:hover {
+    color: var(--clr-violet-600);
 }
 
 summary::-webkit-details-marker {
